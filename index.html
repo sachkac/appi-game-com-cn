@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+            color: #1f1f1f;
+            line-height: 1.7;
+            font-weight: 400;
+            padding: 0 1.2rem;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 0 4rem 0;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 480;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            max-width: 580px;
+        }
+
+        .hero .small-note {
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #7d7d7d;
+        }
+
+        /* 通用标题及段落 */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 440;
+            letter-spacing: -0.01em;
+            margin: 2.8rem 0 1rem 0;
+            color: #1f1f1f;
+            border-left: 3px solid #c9b99a;
+            padding-left: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 420;
+            margin: 1.6rem 0 0.5rem 0;
+            color: #2b2b2b;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #343434;
+        }
+
+        a {
+            color: #4f5b66;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 0.5px;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: #8a6e4b;
+            text-decoration-thickness: 1px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem 1.5rem;
+            margin: 1.8rem 0 0.5rem 0;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            padding: 1.2rem 1.2rem 1.4rem 1.2rem;
+            border-radius: 2px;
+            box-shadow: 0 0 0 1px #efefee;
+        }
+
+        .feature-item h3 {
+            margin-top: 0;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+            font-weight: 480;
+            color: #232323;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #4f4f4f;
+            margin-bottom: 0;
+        }
+
+        .section-spacer {
+            margin: 2.2rem 0 0.8rem 0;
+        }
+
+        .faq-short {
+            background: #ffffff;
+            padding: 1.4rem 1.6rem;
+            border: 1px solid #eae8e4;
+            border-radius: 2px;
+            margin: 1.8rem 0;
+        }
+
+        .faq-short dt {
+            font-weight: 460;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+            color: #1f1f1f;
+            font-size: 1.02rem;
+        }
+
+        .faq-short dt:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-short dd {
+            margin-left: 0;
+            padding-left: 0.2rem;
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            border-left: 2px solid #ddd8cf;
+            padding-left: 0.8rem;
+        }
+
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e3e1dd;
+            font-size: 0.85rem;
+            color: #6d6d6d;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .footer-note span {
+            opacity: 0.7;
+        }
+
+        .inline-link-marker {
+            background: #f4f2ef;
+            padding: 0.1rem 0.3rem;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 580px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .page {
+                padding: 2rem 0 3rem 0;
+            }
+
+            .faq-short {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            body {
+                padding: 0 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>查询、对照与延伸阅读</h1>
+            <p>抛开浮泛的评价，回到游戏信息本身。<br>无论你是在寻找一款老游戏的背景、对比几款同类作品的差异，还是为了某个细节翻阅资料，<a href="https://appi-game.com.cn">爱游戏</a> 提供一个轻量、安静的参照坐标。</p>
+            <div class="small-note">日常 · 不追赶热点 · 只整理可靠线索</div>
+        </div>
+
+        <!-- 优势区：卡片式 -->
+        <h2>在信息过载时，保持一种阅读节奏</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>条目式聚合</h3>
+                <p>每款游戏拥有独立页面，涵盖发行时间、开发方、标签、短评及关联作品。适合快速横向对比，也适合沉浸式回顾。</p>
+            </div>
+            <div class="feature-item">
+                <h3>克制的内容密度</h3>
+                <p>不堆砌排行榜、不插入自动播放视频。页面以文本为主，排版留白充分，阅读时不易产生视觉疲劳。</p>
+            </div>
+            <div class="feature-item">
+                <h3>交叉索引</h3>
+                <p>通过系列、类型、主题等维度连接条目。你可以从一款熟悉的游戏延伸出去，发现风格相近或理念相通的作品。</p>
+            </div>
+            <div class="feature-item">
+                <h3>无账户干扰</h3>
+                <p>浏览时不需要注册、登录或关注。内容公开，结构清晰，如同翻阅一本随手可查的私人笔记。</p>
+            </div>
+        </div>
+
+        <!-- 说明区 + 使用场景 -->
+        <h2>什么情况下适合翻看这里</h2>
+        <p>写评测时需要核实发行年份与平台；和朋友争论某款游戏的制作人员；或者只是想在周末安静地补补老游戏的背景故事——<a href="https://appi-game.com.cn">爱游戏</a> 的条目倾向于提供事实性内容，不掺杂过度诠释。你可以把它看作一个游戏信息的小型索引，而非评价体系。</p>
+        <p>站内没有评分、没有用户评论楼，也不追踪在线人数。每一条内容都由人工筛选与整理，保持简练。如果你习惯在阅读游戏资料时不被推荐算法牵引，这种浏览方式可能会让你觉得自在。</p>
+
+        <h3 style="margin-top: 2rem;">一个常见的翻阅路径</h3>
+        <p>从一款熟悉的作品出发，查看它的标签页；顺着“相似题材”或者“同一发行商”的链接跳转到另一款游戏；然后停下来读几段背景说明。整个过程没有推送通知，没有进度条，你可以随时合上页面，也可以随时回来。</p>
+
+        <!-- FAQ 摘要 -->
+        <h2>一些简短的回答</h2>
+        <dl class="faq-short">
+            <dt>这里的游戏条目覆盖哪些平台？</dt>
+            <dd>主机、掌机、PC 及部分早期街机作品都有收录，以较有讨论度的作品为主，同时包含一些冷门但有特点的标题。平台信息会标注在每条页面的元数据中。</dd>
+
+            <dt>内容多久更新一次？</dt>
+            <dd>不定期补充新条目与修正细节。没有固定发稿周期，也不追首发评测。更新通常集中在对已有条目的补充和关联梳理上。</dd>
+
+            <dt>能否贡献或指正错误？</dt>
+            <dd>目前没有开放编辑入口。如果你发现明显的事实偏差，可以通过社交渠道反馈（站内暂未设置评论功能）。每一条目都保留了参考来源，方便交叉验证。</dd>
+
+            <dt>有移动端适配吗？</dt>
+            <dd>页面采用相对简单的布局，在手机和平板上阅读时文本会自动调整宽度。没有独立 App，也不需要安装任何程序。</dd>
+        </dl>
+
+        <!-- 更自然的链接句子 -->
+        <p style="margin-top: 1.8rem;">如果你愿意从头开始浏览，可以直接从 <a href="https://appi-game.com.cn">爱游戏</a> 的主页进入，所有分类与标签都在首屏清晰陈列。没有弹窗引导，也没有浮层广告。</p>
+
+        <!-- 底部链接 -->
+        <div class="footer-note">
+            <span>爱游戏 · appi-game.com.cn</span>
+            <span style="font-size: 0.8rem; letter-spacing: 0.3px;">内容仅供参考 · 不构成购买建议</span>
+        </div>
+    </div>
+</body>
+</html>
