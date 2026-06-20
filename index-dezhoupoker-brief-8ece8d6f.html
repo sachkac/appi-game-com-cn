@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>德州扑克 · 理解与入门 | index-dezhoupoker.com</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f2f4f6;
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 860px;
+            width: 100%;
+        }
+        /* 卡片体系 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.04);
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.25s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            border-left: 4px solid #2c7a5e;
+            padding-left: 1rem;
+        }
+        .card-sub {
+            font-size: 1rem;
+            color: #5f6b7a;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #dce1e8;
+            padding-bottom: 0.6rem;
+        }
+        .hero {
+            background: #fafbfc;
+            border: 1px solid #e3e8ef;
+            padding: 2.5rem 2rem;
+            text-align: left;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 650;
+            line-height: 1.2;
+            color: #15202b;
+            margin-bottom: 0.5rem;
+        }
+        .hero .lead {
+            font-size: 1.15rem;
+            color: #3f4a59;
+            max-width: 90%;
+        }
+        .badge {
+            display: inline-block;
+            background: #eef3f7;
+            color: #1f3b4f;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            border: 1px solid #dce3ec;
+            margin-right: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+        .inline-link {
+            color: #1d6f4f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b7cfc1;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .inline-link:hover {
+            color: #0b4d36;
+            border-bottom-color: #0b4d36;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #1e3a2c;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+        .faq-a {
+            color: #364451;
+            padding-left: 0.5rem;
+            border-left: 2px solid #cbd8d0;
+            padding-top: 0.1rem;
+        }
+        .quote-block {
+            background: #f4f8f5;
+            border-left: 5px solid #2c7a5e;
+            padding: 1.2rem 1.8rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.8rem 0;
+            font-style: normal;
+            color: #2b3e44;
+        }
+        .quote-block p {
+            margin-bottom: 0.3rem;
+        }
+        .quote-block .source {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #3f6b58;
+            margin-top: 0.4rem;
+        }
+        .visitor-note {
+            background: #ffffff;
+            border: 1px solid #dce4ea;
+            border-radius: 40px;
+            padding: 0.8rem 1.8rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #2b404b;
+            margin: 1.8rem 0 0.8rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #2c7a5e;
+            color: #1f654b;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .btn-outline:hover {
+            background: #e3f0e9;
+            border-color: #1b5c44;
+        }
+        .flex-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.3rem;
+            margin: 1rem 0 0.4rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e6ed;
+            margin: 1.8rem 0;
+        }
+        .footer-note {
+            text-align: center;
+            color: #6c7a88;
+            font-size: 0.9rem;
+            padding-top: 0.8rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .card { padding: 1.6rem 1.2rem; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero .lead { font-size: 1rem; max-width: 100%; }
+            .card-title { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HERO / 文章标题与导语 -->
+    <div class="card hero">
+        <h1>德州扑克：一个策略与判断的竞技场</h1>
+        <div class="lead">
+            当您首次来到 index-dezhoupoker.com，最先想确认的往往是：这个网站能帮我理解或参与什么？<br>
+            本文从识别用途的角度出发，为您梳理 <a href="https://index-dezhoupoker.com" class="inline-link">德州扑克</a> 的核心轮廓与实用信息。
+        </div>
+        <div class="flex-tags">
+            <span class="badge">♠ 手牌范围</span>
+            <span class="badge">♣ 位置意识</span>
+            <span class="badge">♥ 底池控制</span>
+            <span class="badge">♦ 博弈思维</span>
+        </div>
+    </div>
+
+    <!-- 正文1 · 快速识别网站用途 -->
+    <div class="card">
+        <div class="card-title">从使用场景理解网站定位</div>
+        <div class="card-sub">不只是一种游戏，更是一种思考框架</div>
+        <p>
+            面对一个带有 “德州扑克” 域名的网站，访问者通常带有三种期望：学习基础规则、获取策略参考、或寻找可以练习的线上环境。<strong>index-dezhoupoker.com</strong> 的页面设计意图正是为这三类需求提供清晰的入口。无论您是想系统了解翻前决策，还是希望快速对比不同起手牌的价值，这个站点的内容结构都围绕 “减少信息噪音” 来组织。
+        </p>
+        <p>
+            在扑克学习路径中，区分“信息型页面”与“互动型页面”很重要。本介绍页属于前者——它不会替代完整的扑克教程，但会告诉您该从何处开始。如果您已经接触过 <a href="https://index-dezhoupoker.com" class="inline-link">德州扑克</a>，那么这里的概念卡片和 FAQ 摘要能帮助您快速定位自己的知识盲区。
+        </p>
+    </div>
+
+    <!-- 正文2 · 特点与关键概念 -->
+    <div class="card">
+        <div class="card-title">特点拆解：比运气更重要的变量</div>
+        <div class="card-sub">位置、范围、赔率与对手阅读</div>
+        <p>
+            德州扑克之所以吸引大量策略爱好者，是因为它融合了概率计算、心理学和资金管理。与许多桌上游戏不同，长期盈利玩家往往具备以下共同习惯：
+        </p>
+        <ul style="padding-left: 1.6rem; margin-bottom: 1.2rem; color: #1f3340;">
+            <li style="margin-bottom: 0.4rem;"><strong>位置优先</strong>——在后位行动时拥有更多信息，翻牌后更容易做出正确决策。</li>
+            <li style="margin-bottom: 0.4rem;"><strong>范围构建</strong>——不只看自己手牌，还会推测对手可能持有的组合。</li>
+            <li style="margin-bottom: 0.4rem;"><strong>底池赔率敏感</strong>——只在潜在回报大于投入时继续游戏。</li>
+        </ul>
+        <p>
+            这些概念在任何一本扑克教材里都会出现，但真正内化需要结合具体牌例。在 index-dezhoupoker.com 的后续页面中，您可以找到针对不同盲注结构的翻前表格以及常见翻后场景的解说。
+        </p>
+        <div class="quote-block">
+            <p>“扑克是一种信息不完整的决策游戏。你永远无法消除不确定性，但可以通过系统思考降低犯错频率。” </p>
+            <div class="source">—— 策略笔记，2025</div>
+        </div>
+    </div>
+
+    <!-- 正文3 · 场景与提示（引用提示+访问句） -->
+    <div class="card">
+        <div class="card-title">场景提示：从旁观到参与</div>
+        <div class="card-sub">你属于哪种访问者？</div>
+        <p>
+            <strong>场景一：规则新手。</strong> 您可能刚看完某部影视作品，对“同花顺”和“诈唬”产生好奇。建议先浏览网站中关于手牌排名的图解部分，然后尝试用免费模拟器试玩几手。<br>
+            <strong>场景二：进阶玩家。</strong> 您已经知道怎么玩，但希望优化翻前范围的平衡性。这时可以重点关注网站中关于范围构建和 3-bet 频率的文章。<br>
+            <strong>场景三：内容研究者。</strong> 扑克术语在不同文化中可能存在细微差异，您可以把 index-dezhoupoker.com 当作一个中文术语对照参考点。
+        </p>
+        <div class="visitor-note">
+            ✦ 想快速判断这个网站是否适合你？不妨先打开一篇关于“位置与起手牌选择”的文章。如果读完后你觉得思路清晰、有所启发，那么这里的其他内容大概率也符合你的信息需求。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要（模块化问答） -->
+    <div class="card">
+        <div class="card-title">常见问题摘要</div>
+        <div class="card-sub">对网站内容的快速索引</div>
+        <div class="faq-item">
+            <div class="faq-q">这个网站与扑克室有什么区别？</div>
+            <div class="faq-a">index-dezhoupoker.com 是一个信息与学习导向的页面，并非在线真钱平台。它帮助您理解游戏机制、策略逻辑以及行业基础概念。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">我需要先掌握数学才能看懂内容吗？</div>
+            <div class="faq-a">不需要。文章中的概率部分通常会用直观的比值或文字描述，不要求高等数学基础。重点是逻辑框架，而非公式推导。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容会定期更新吗？</div>
+            <div class="faq-a">站点会随着扑克理论演变进行内容迭代，尤其关注翻前范围研究与常见误区。您可以关注页面底部的更新标记。</div>
+        </div>
+        <hr>
+        <p style="font-size: 0.95rem; color: #3b4b5a;">
+            如果您希望进一步探索，可以直接点击上文中的 <a href="https://index-dezhoupoker.com" class="inline-link">德州扑克</a> 链接，进入 hub 页面浏览所有文章的概览。您会发现，每一个卡片都对应一个独立的知识模块。
+        </p>
+    </div>
+
+    <!-- 收尾·轻引用与访问句 -->
+    <div class="card" style="background: #f9fbfd; border: 1px solid #d7e0e8;">
+        <p style="font-size: 1.05rem; color: #1c2f3c;">
+            “识别一个网站的价值，最快的方式是看它能否回答你此刻最想问的问题。” 在 <strong>index-dezhoupoker.com</strong>，我们希望每一位访问者离开时都比来时多一份清晰——无论那份清晰是关于位置选择、底池管理，还是仅仅对 <a href="https://index-dezhoupoker.com" class="inline-link">德州扑克</a> 的认知边界。
+        </p>
+        <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+            <a href="https://index-dezhoupoker.com" class="btn-outline">德州扑克</a>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        © 2025 · index-dezhoupoker.com 介绍页 · 简洁博客式
+    </div>
+
+</div>
+</body>
+</html>
